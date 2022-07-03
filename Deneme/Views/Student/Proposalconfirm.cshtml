@@ -1,0 +1,66 @@
+﻿
+
+
+@model Deneme.Models.Applyproposal
+
+@{ ViewBag.Title = "Proposalconfirm"; }
+<head>
+    @*<link href="~/Content/StyleSheet5.css" rel="stylesheet" />*@
+</head>
+<body>
+    <div style="margin-top:25px;">
+        @using (Html.BeginForm("Proposalconfirm", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal" style="margin-top:50px; margin-left:50px;">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+
+                <div class="form-group" style="color:black">
+                    @Html.LabelFor(model => model.StudentID, "StudentID", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.StudentID, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                required = "required"@*,@Value = HttpContext.Current.User.Identity.Name , @readonly ="readonly"*@ @*,@Value= Model.stdtbl.StudentID*@}
+})
+                        @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group" style="color:black">
+                    @Html.LabelFor(model => model.ProjectID, "ProjectID", htmlAttributes: new { @class = "control-label col-md-2", @style = "display:none" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ProjectID, new { htmlAttributes = new { @class = "form-control", required = "required", @readonly = "readonly", @style = "display:none" } })
+                        @Html.ValidationMessageFor(model => model.ProjectID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Apply" class="btn btn-default" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                @Html.ActionLink("Back to List", "Deneme")
+            </div>
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }}
+
+
+    </div>
+
+
+</body>

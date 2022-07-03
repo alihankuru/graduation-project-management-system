@@ -1,0 +1,276 @@
+﻿
+
+<html>
+<head>
+    <title>callendar</title>
+
+
+    <link href="~/Content/jury.css" rel="stylesheet" />
+
+</head>
+<body style="margin: 0px; padding: 0px; background-color: #433b45">
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="position:fixed; margin-left:500px;">
+            <div class="modal-content" style="margin-top:100px; height:auto; width:950px; margin-right:0px;"></div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="calendar">
+            <div class="front">
+                <div class="current-date">
+                    <h1>Jury Time Portal</h1>
+                    <h1>May 2022</h1>
+
+
+                </div>
+
+                <div class="current-month">
+                    <ul class="week-days">
+                        <li>MON</li>
+                        <li>TUE</li>
+                        <li>WED</li>
+                        <li>THU</li>
+                        <li>FRI</li>
+                        <li>SAT</li>
+                        <li>SUN</li>
+                    </ul>
+
+                    <div class="weeks">
+                        <div class="first">
+                            <button name="button" id="button" value="2"><span>02</span></button>
+                            <button name="button" id="button" value="3"><span>03</span></button>
+                            <button name="button" id="button" value="4"><span>04</span></button>
+                            <button name="button" id="button" value="5"><span>05</span></button>
+                            <button name="button" id="button" value="6"><span>06</span></button>
+                            <button name="button" id="button" value="7"><span>07</span></button>
+                            <button name="button" id="button" value="8"><span>08</span></button>
+                        </div>
+                        <div class="second">
+                            <button name="button" id="button" value="9"><span>09</span></button>
+                            <button name="button" id="button" value="10"><span>10</span></button>
+                            <button name="button" id="button" value="11"><span>11</span></button>
+                            <button name="button" id="button" value="12"><span>12</span></button>
+                            <button name="button" id="button" value="13"><span>13</span></button>
+                            <button name="button" id="button" value="14"><span>14</span></button>
+                            <button name="button" id="button" value="15"><span>15</span></button>
+                        </div>
+                        <div class="second">
+                            <button name="button" id="button" value="16"><span>16</span></button>
+                            <button name="button" id="button" value="17"><span>17</span></button>
+                            <button name="button" id="button" value="18"><span>18</span></button>
+                            <button name="button" id="button" value="19"><span>19</span></button>
+                            <button name="button" id="button" value="20"><span>20</span></button>
+                            <button name="button" id="button" value="21"><span>21</span></button>
+                            <button name="button" id="button" value="22"><span>22</span></button>
+                        </div>
+
+                        <div class="second">
+                            <button name="button" id="button" value="23"><span>23</span></button>
+                            <button name="button" id="button" value="24"><span>24</span></button>
+                            <button name="button" id="button" value="25"><span>25</span></button>
+                            <button name="button" id="button" value="26"><span>26</span></button>
+                            <button name="button" id="button" value="27"><span>27</span></button>
+                            <button name="button" id="button" value="28"><span>28</span></button>
+                            <button name="button" id="button" value="29"><span>29</span></button>
+                        </div>
+
+                    </div>
+
+                    <div id="time" style="display: none;">
+                        <h1>Müsait olduğunuz zaman aralıklarını işaretlemeyiniz.</h1>
+
+
+
+                        <div class="columns">
+
+
+                            @using (Html.BeginForm("Avability", "Jury", FormMethod.Post))
+                            {
+                                <input type="hidden" id="dayinput" name="day" value="" />
+                                <div class="checkbox-container">
+                                    <div id="columns1">
+
+                                    </div>
+                                    <div id="columns2">
+
+                                    </div>
+                                    <div id="columns3">
+                                    </div>
+                                </div>
+                                <div id="checkbox-submit">
+                                    <input type="submit" value="Submit">
+                                </div>
+
+                            }
+
+                        </div>
+
+                        <a href="@Url.Action("Presentation", "Jury")" type="button" data-toggle="modal" data-target="#exampleModal">Press</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <style>
+
+            table, th, tr, td {
+                border: 2px solid black;
+            }
+        </style>
+
+
+
+        <div id="tab">
+
+        </div>
+
+
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $("#hayref").hide();
+                $("button").click(function () {
+
+                    var x = document.getElementById("time");
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                    }
+                    else {
+                        x.style.display = "none";
+                    }
+                    document.getElementById("dayinput").value = $(this).val()
+
+                    var f = {};
+                    f.url = '@Url.Action("Javascript","Jury")'
+                    f.type = "POST"
+                    f.dataType = "json"
+                    f.data = JSON.stringify({ day: $(this).val() })
+                    f.contentType = "application/json";
+
+                    f.success = function (response) {
+
+                        console.log(response.result);
+                        const presentation_hours = ["09:00-09:30", "09:30-10:00", "10:00-10:30", "10:30-11:00",
+                            "11:00-11:30", "11:30-12:00", "12:00-12:30", "12:30-13:00", "13:00-13:30",
+                            "13:30-14:00", "14:00-14:30", "14:30-15:00", "15:00-15:30", "15:30-16:00",
+                            "16:00-16:30", "16:30-17:00", "17:00-17:30", "17:30-18:00"];
+
+                        var form = document.getElementById('columns1');
+                        form.innerHTML = "";
+
+                        for (let i = 0; i < 6; i++) {
+
+
+                            let input = document.createElement("input");
+                            input.name = "Cars"
+                            input.type = "hidden";
+                            input.id = "cars1"
+                            input.value = i;
+
+                            let label = document.createElement("label");
+                            label.htmlFor = "Cars"
+                            label.innerHTML = presentation_hours[i];
+
+                            let checkbox = document.createElement("input");
+                            checkbox.type = "checkbox";
+                            checkbox.value = "1";
+                            checkbox.name = "Cars"
+                            checkbox.id = "cars1"
+
+                            if (response.result[i] == "1") {
+                                checkbox.checked = true;
+                            }
+
+                            form.appendChild(input);
+                            form.appendChild(label);
+                            form.appendChild(checkbox);
+
+                        }
+
+                        var form = document.getElementById('columns2');
+                        form.innerHTML = "";
+                        for (let i = 6; i < 12; i++) {
+
+
+                            let input = document.createElement("input");
+                            input.name = "Cars"
+                            input.type = "hidden";
+                            input.id = "cars1"
+                            input.value = i;
+
+                            let label = document.createElement("label");
+                            label.htmlFor = "Cars"
+                            label.innerHTML = presentation_hours[i];
+
+                            let checkbox = document.createElement("input");
+                            checkbox.type = "checkbox";
+                            checkbox.value = "1";
+                            checkbox.name = "Cars"
+                            checkbox.id = "cars1"
+
+                            if (response.result[i] == "1") {
+                                checkbox.checked = true;
+                            }
+
+                            form.appendChild(input);
+                            form.appendChild(label);
+                            form.appendChild(checkbox);
+
+                        }
+                        var form = document.getElementById('columns3');
+                        form.innerHTML = "";
+                        for (let i = 12; i < 18; i++) {
+
+
+                            let input = document.createElement("input");
+                            input.name = "Cars"
+                            input.type = "hidden";
+                            input.id = "cars1"
+                            input.value = i;
+
+                            let label = document.createElement("label");
+                            label.htmlFor = "Cars"
+                            label.innerHTML = presentation_hours[i];
+
+                            let checkbox = document.createElement("input");
+                            checkbox.type = "checkbox";
+                            checkbox.value = "1";
+                            checkbox.name = "Cars"
+                            checkbox.id = "cars1"
+
+                            if (response.result[i] == "1") {
+                                checkbox.checked = true;
+                            }
+
+                            form.appendChild(input);
+                            form.appendChild(label);
+                            form.appendChild(checkbox);
+
+                        }
+                    
+                    }
+                    f.error = function (response) {
+                        alert('Not passed');
+                    }
+                    $.ajax(f);
+
+                })
+
+
+            })
+
+
+        </script>
+
+
+
+
+</body>
+</html>

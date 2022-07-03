@@ -1,0 +1,78 @@
+﻿
+
+@model Deneme.Models.Group_ProjectTbl
+@{
+    ViewBag.Title = "DenyOrder";
+}
+
+<h2>DenyOrder</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+
+
+
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Group_ProjectID, htmlAttributes: new { @class = "control-label col-md-2", @style = "display:none" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Group_ProjectID, new { htmlAttributes = new { @class = "form-control", @style = "display:none" } })
+                @Html.ValidationMessageFor(model => model.Group_ProjectID, "", new { @class = "text-danger", @style = "display:none" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AssignGroupID, htmlAttributes: new { @class = "control-label col-md-2", @style = "display:none" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AssignGroupID, new { htmlAttributes = new { @class = "form-control", @style = "display:none" } })
+                @Html.ValidationMessageFor(model => model.AssignGroupID, "", new { @class = "text-danger", @style = "display:none" })
+            </div>
+        </div>
+
+
+        <p style="color:black; margin-left:30px;">ARE YOU SURE ?</p>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AssignProjectID, htmlAttributes: new { @class = "control-label col-md-2", @style = "display:none" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AssignProjectID, new { htmlAttributes = new { @class = "form-control", @style = "display:none" } })
+                @Html.ValidationMessageFor(model => model.AssignProjectID, "", new { @class = "text-danger", @style = "display:none" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.ProjectStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ProjectStatus, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ProjectStatus, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2", @style = "display:none" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", @style = "display:none" } })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger", @style = "display:none" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group" style="margin-right:40px;">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="YES" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ApproveDenyButtonPage")
+</div>

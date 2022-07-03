@@ -1,0 +1,104 @@
+﻿@model Proposal.Models.ProposalModel
+
+@{
+    ViewBag.Title = "ProposalForm";
+}
+
+<h2>ContactForm</h2>
+<head>
+    <link href="~/Content/CSS/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/CSS/daterangepicker.css" rel="stylesheet" />
+    <link href="~/Content/CSS/material-design-iconic-font.min.css" rel="stylesheet" />
+    <link href="~/Content/CSS/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/CSS/main.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+</head>
+
+
+<body style="background-color: #3c373e">
+    <div class="page-wrapper font-poppins" style="margin-top:85px;">
+        <div class="wrapper wrapper--w780">
+            <div class="card card-3">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Registration Info</h2>
+                    @using (Html.BeginForm("ProposalForm", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="input-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "input--style-3", placeholder = "Project Name", @type = "text", name = "Project Name" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "input--style-3", placeholder = "Project Details", @type = "text", name = "Project Details" } })
+                                    @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                @*@Html.LabelFor(model => model.ProjectRepDate, "Start Date", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                <b>Start Date</b>
+                                <div class="col-md-13">
+                                    @Html.EditorFor(model => model.ProjectRepDate, new { htmlAttributes = new { @class = "input--style-3 ", placeholder = "Project Rep Date", @type = "date", name = "Project Rep Date" } })
+                                    @Html.ValidationMessageFor(model => model.ProjectRepDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                @*@Html.LabelFor(model => model.LastSubmissionDate, "End Date", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                <b>End Date</b>
+                                <div class="col-md-13">
+                                    @Html.EditorFor(model => model.LastSubmissionDate, new { htmlAttributes = new { @class = "input--style-3 ", placeholder = "Last Submission Date", @type = "date", name = "Last Submission Date" } })
+                                    @Html.ValidationMessageFor(model => model.LastSubmissionDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="p-t-10">
+                                    <input type="file" name="ImageFile" required />
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="p-t-10">
+                                    <input type="submit" value="Create" class="btn btn--pill btn--green" />
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="col-md-offset-2 col-md-2">
+                                    <label class="label-success">@ViewBag.SuccesMessage</label>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/select2.min.js"></script>
+    <script src="~/Scripts/global.js"></script>
+</body>

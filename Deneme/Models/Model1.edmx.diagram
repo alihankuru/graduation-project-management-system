@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="784de479cbbb4998991c998175ee94cf" Name="Diagram1">
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.AnnouncementTbl" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.Assistan_ProjectTbl" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.AssistantTbl" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.DaysTable" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.DepartmentTbl" Width="1.5" PointX="5.25" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.FacultyTbl" Width="1.5" PointX="3" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.FeedbackTbl" Width="1.5" PointX="12.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.GradeTbl" Width="1.5" PointX="12.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.Group_ProjectTbl" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.GroupRatingResultTbl" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.GroupTbl" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.JuriesTbl" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.Jury_GroupTbl" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.Jury_ProfessorTbl" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.MobileAppTbl" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.PresentationsTbl" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.Professor_ProjectTbl" Width="1.5" PointX="7.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.ProfessorTbl" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.ProjectTbl" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.QuestionTbl" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.Student_GroupTbl" Width="1.5" PointX="15.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.Student_ProjectTbl" Width="1.5" PointX="15.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.StudentTbl" Width="1.5" PointX="10.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.TaskTbl" Width="1.5" PointX="12.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.TurnitinTbl" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.User" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GraduationProjectManagementDBModel.VoteTbl" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_Assistan_ProjectTbl_AssistantTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_Assistan_ProjectTbl_ProjectTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_AssistantTbl_ProjectTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_ProfessorTbl_AssistantTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK__DaysTable__JuryI__39AD8A7F" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_DepartmentTbl_FacultyTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_GradeTbl_FacultyTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_ProfessorTbl_FacultyTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_FeedbackTbl_ProjectTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_FeedbackTbl_StudentTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_GradeTbl_StudentTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_Group_ProjectTbl_GroupTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_Group_ProjectTbl_ProjectTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_PresentationsTbl_GroupTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_Student_GroupTbl_GroupTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_TurnitinTbl_GroupTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_Professor_ProjectTbl_ProfessorTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_Professor_ProjectTbl_ProjectTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_StudentTbl_ProfessorTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_Student_ProjectTbl_ProjectTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_Student_ProjectTbl_ProjectTbl1" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_StudentTbl_ProjectTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_TaskTbl_ProjectTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_Student_GroupTbl_StudentTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_Student_ProjectTbl_StudentTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="GraduationProjectManagementDBModel.FK_TaskTbl_StudentTbl" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

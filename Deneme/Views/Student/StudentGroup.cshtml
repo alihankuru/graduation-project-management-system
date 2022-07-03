@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Deneme.Models.StudentandGroup>
+@{
+    ViewBag.Title = "StudentGroup";
+}
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/CSS/style1.css">
+    <link rel="stylesheet" href="~/Content/CSS/style.css">
+    <link rel="stylesheet" href="~/Content/CSS/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/CSS/bootstrap.min.min.css">
+
+
+
+
+
+</head>
+<body style="margin:0px; padding:0px;">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="margin-left:700px">
+            <div class="modal-content" style="margin-top:100px"></div>
+
+
+
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="table-responsive" style="overflow:unset">
+                <table class="table table-borderless" style="background-color: #3c373e; border-radius: 15px; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
+                    <tr>
+                        <td>
+                            <table class="table custom-table" style="border-collapse: collapse; border-spacing: 15px 5rem; background-color: #29242b; border-radius: 15px;">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            Group ID
+                                        </th>
+                                        <th scope="col">
+                                            Group Name
+                                        </th>
+                                        <th scope="col">
+                                            Upload Report
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        if (item.Stdtbl.StudentNumber == HttpContext.Current.User.Identity.Name || item.Stdtbl2.StudentNumber == HttpContext.Current.User.Identity.Name)
+                                        {
+
+                                            <tr scope="row">
+
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Grptbl.GroupID)
+                                                </td>
+
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Grptbl.GroupName)
+                                                </td>
+
+                                                <td>
+                                                    <div id="a1">
+                                                        <a href="@Url.Action("GroupUploadReport", "Student", new { GroupID = item.Grptbl.GroupID })" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">Upload</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+
+                                        }
+
+                                    }
+                                </tbody>
+                            </table>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
+</body>
+

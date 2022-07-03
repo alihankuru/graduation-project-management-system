@@ -1,0 +1,96 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.center {
+    position: absolute;
+    width: 500px;
+    background: #FFFFFF;
+    height: 500px;
+    opacity: 0.7;
+    margin-left: 310px;
+    margin-top: 200px;
+    background-color: rgb(142, 142, 142);
+    border-radius: 10px 10px 10px 10px;
+}
+
+.center2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    background: #ffffff;
+    height: 300px;
+    border-radius: 10px;
+    font-family: "72", "72full", Arial, Helvetica, sans-serif;
+}
+
+.logo {
+    margin-left: 350px;
+    margin-top: 220px;
+}
+
+.urMsgBarImgError {
+    height: 12px;
+    width: 12px;
+    /* background-image: url('/Content/Images/ico12_msg_error.gif');*/
+    background-repeat: no-repeat;
+    margin: 0 0 0 0;
+}
+
+.loginform {
+    position: absolute;
+    margin-left: 390px;
+    margin-top: 370px;
+}
+
+
+
+a:link, a:visited {
+    color: white;
+}
+
+a:hover, a:active {
+    color: white;
+}
+
+.Profile {
+    position: absolute;
+    width: 1600px;
+    background: #e8e8e8;
+    height: 840px;
+    border-radius: 10px 10px 10px 10px;
+    margin-right: 580px;
+}
+
+.profileicon {
+    margin-top: 130px;
+    margin-left: 170px;
+}
+
+
+
+.alert {
+    padding: 20px;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .closebtn:hover {
+        color: black;
+    }

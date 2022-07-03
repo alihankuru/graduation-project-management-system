@@ -1,0 +1,150 @@
+﻿@model IEnumerable<Deneme.Models.ApproveClass>
+
+
+@{ ViewBag.Title = "DenyOrder"; }
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/CSS/style1.css">
+    <link rel="stylesheet" href="~/Content/CSS/style.css">
+    <link rel="stylesheet" href="~/Content/CSS/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/CSS/bootstrap.min.min.css">
+</head>
+
+<body style="margin:0px; padding:0px;">
+    <div>
+        <div class="container">
+            <div class="table-responsive" style="overflow:unset">
+                <table class="table table-borderless" style="background-color: #3c373e; border-radius: 15px; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
+                    <tr>
+                        <td>
+                            <table class="table custom-table" style="border-collapse: collapse; border-spacing: 15px 5rem; background-color: #29242b; border-radius: 15px;">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" colspan="1">
+                                            GroupProjectID
+                                        </th>
+
+                                        <th scope="col" colspan="1">
+                                            GroupName
+                                        </th>
+
+                                        <th scope="col" colspan="1">
+                                            ProjectID
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            ProjectName
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            ProjectDescription
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            ProjectStartDate
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            ProjectEndDate
+                                        </th>
+
+                                        <th scope="col" colspan="1">
+                                            StudentNames
+                                        </th>
+
+                                        <th scope="col" colspan="1">
+                                            ProjectStatus
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tbody>
+                                        <tr scope="row" style="padding:5px">
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.grpprjtbl.Group_ProjectID)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.grptbl.GroupName)
+                                            </td>
+
+
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.prjtbl.ProjectID)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.prjtbl.ProjectName)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.prjtbl.ProjectDescription)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.prjtbl.ProjectStartDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.prjtbl.ProjectEndDate)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.studenttbl1.StudentName),@Html.DisplayFor(modelItem => item.studenttbl2.StudentName)
+                                            </td>
+
+
+                                            <td>
+                                                @if (item.grpprjtbl.Status == 1)
+                                                {
+
+                                                    <span class="btn btn-success">Approved</span>}
+
+
+                                                @if (item.grpprjtbl.Status == null)
+                                                {
+                                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="text-align:center;  font-family:Bahnschrift;">
+                                                        <div class="modal-dialog" role="document" style="display:flex; justify-content:center; padding-top:250px;">
+                                                            <div class="modal-content" style="height:225px; width:350px;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div id="a1">
+                                                        <a class="btn btn-primary" href="@Url.Action("ConfirmOrder", "Professor", new { Group_ProjectID = item.grpprjtbl.Group_ProjectID })" type="button" data-toggle="modal" data-target="#exampleModal">Approve</a>
+                                                    </div>
+
+
+                                                    <a class="btn btn-warning" href="@Url.Action("DenyOrder", "Professor", new { Group_ProjectID = item.grpprjtbl.Group_ProjectID })" type="button" data-toggle="modal" data-target="#exampleModal">Deny</a>}
+
+                                                @if (item.grpprjtbl.Status == -1)
+                                                {
+
+                                                    <script language="javascript">
+                                                        $("#a1").hide();
+
+
+                                                    </script>
+                                                    <script language="javascript">
+                                                        document.getElementById("a1").style.visibility = "hidden";
+                                                        document.getElementById("a1").style.display = "none";
+                                                    </script>
+
+
+                                                    <span class="btn btn-danger">Denied</span>}
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                }
+
+                            </table>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>

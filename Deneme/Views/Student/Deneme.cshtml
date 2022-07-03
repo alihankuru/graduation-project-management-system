@@ -1,0 +1,151 @@
+﻿@model IEnumerable<Deneme.Models.MultiProposal>
+
+@{
+    ViewBag.Title = "Deneme";
+}
+
+<h2>Proposals</h2>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/CSS/style1.css">
+    <link rel="stylesheet" href="~/Content/CSS/style.css">
+    <link rel="stylesheet" href="~/Content/CSS/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/CSS/bootstrap.min.min.css">
+</head>
+<body style="margin:0px; padding:0px;">
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="margin-left:700px;">
+            <div class="modal-content" style="margin-top:100px"></div>
+
+
+
+        </div>
+    </div>
+
+
+
+    <div>
+        <div class="container">
+            <div class="table-responsive" style="overflow:unset">
+                <table class="table table-borderless" style="background-color: #3c373e; border-radius: 15px; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
+                    <tr>
+                        <td>
+                            <table class="table custom-table" style="border-collapse: collapse; border-spacing: 15px 5rem; background-color: #29242b; border-radius: 15px;">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" colspan="1">
+                                            Project ID
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Professor Name
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Professor Surname
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Project Name
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Project Project Description
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Precondition
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Project End Date
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Assistant Name
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Assistant Surname
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Attachments
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Appeal
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr scope="row" style="padding:5px">
+                                            <td>
+                                                <a>
+                                                    @item.Projtbl.ProjectID
+                                                </a>
+                                            </td>
+                                            <td>
+
+                                                @item.Proftbl.ProfessorName
+
+                                            </td>
+                                            <td>
+                                                @item.Proftbl.ProfessorSurname
+                                            </td>
+                                            <td>
+
+                                                @item.Projtbl.ProjectName
+
+                                            </td>
+                                            <td>
+                                                @item.Projtbl.ProjectDescription
+                                            </td>
+                                            <td>
+
+                                                @item.Proftbl.ProfessorPrerequisites
+
+                                            </td>
+                                            <td>
+                                                @item.Projtbl.ProjectEndDate
+                                            </td>
+                                            <td>
+
+                                                @item.Assisttbl.AssistantName
+
+                                            </td>
+                                            <td>
+                                                @item.Assisttbl.AssistantSurname
+                                            </td>
+                                            <td>
+                                                <a href="~/UserImages/@item.Projtbl.ProjectUploadFile" download="Proposal requirements" style="color:white; font-weight:bolder; text-decoration:none; z-index: +1;">Download</a>
+                                                <a href="~/UserImages/@item.Projtbl.ProjectUploadFile" target="_blank" style="color:white; font-weight:bolder; text-decoration:none; z-index: +1;">Open</a>
+                                            </td>
+                                            <td>
+                                                <div class="btn" style="margin:auto; text-align:center;">
+
+                                                    <a href="@Url.Action("Proposalconfirm", "Student", new { ProjectID = item.Projtbl.ProjectID})" type="button" data-toggle="modal" data-target="#exampleModal">
+                                                        Apply
+                                                    </a>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    }
+                                </tbody>
+                            </table>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
+
+
+
+
+
+
+</body>

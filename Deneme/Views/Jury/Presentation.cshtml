@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Deneme.Models.PresentationsTbl>
+
+<div id="CenterInpt" style="display:fixed; margin-left:350px; margin-top:15px;">
+    @using (Html.BeginForm("Filter", "Jury", FormMethod.Get))
+    {
+
+        @Html.TextBox("nn")
+        <input type="submit" value="Submit">
+    }
+
+</div>
+
+<head>
+    <link href="~/Content/jury.css" rel="stylesheet" />
+</head>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Presentation ID</th>
+        <th>Presentation Date</th>
+        <th>Presentation Minute</th>
+    </tr>
+
+    <tbody>
+
+        @foreach (var prs in Model)
+        {
+            <tr>
+                @if (prs.MinuteInfo < 18)
+                {
+                    <th>@prs.PresentationID</th>
+                    <td class="td">@prs.PresentationDate</td>
+                    <td class="dt">@ViewBag.Cars[prs.MinuteInfo]</td>
+                }
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+

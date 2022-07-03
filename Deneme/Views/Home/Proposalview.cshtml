@@ -1,0 +1,138 @@
+﻿@model Deneme.Models.Proposal
+@{
+    ViewBag.Title = "Proposalview";
+    int i = Model.TotalProposals;
+}
+<head>
+    <link rel="stylesheet" href="~/Content/StyleSheet1.css" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+
+    <p style="color:white;font-weight:bold;font-size:20px; margin-top:10px;">You can see the proposals below please select one and apply it</p>
+    <br />
+    @if (Model.TotalProposals >= 1)
+    {
+        <div class="buton" style="margin:auto">
+            <a href="Proposal1">
+                @Model.Proposal1
+            </a>
+        </div>
+        <br />
+    }
+
+    @if (Model.TotalProposals >= 2)
+    {
+        <div class="buton" style="margin:auto">
+            <a href="Proposal2">
+                @Model.Proposal2
+            </a>
+        </div>
+        <br />
+    }
+
+    @if (Model.TotalProposals >= 3)
+    {
+        <div class="buton" style="margin:auto">
+            <a href="Proposal3">
+                @Model.Proposal3
+            </a>
+        </div>
+        <br />
+    }
+
+    @if (Model.TotalProposals >= 4)
+    {
+        <div class="buton" style="margin:auto">
+            <a href="Proposal4">
+                @Model.Proposal4
+            </a>
+        </div>
+        <br />
+    }
+
+    @if (Model.TotalProposals >= 5)
+    {
+        <div class="buton" style="margin:auto;">
+            <a href="Proposal5">
+                @Model.Proposal5
+            </a>
+        </div>
+        <br />
+    }
+
+    @*<div class="buton" style="margin:auto;">
+            <a href="">
+                + Add Proposals
+            </a>
+        </div>*@
+
+    @if (Model.TotalProposals >= 6)
+    {
+        <div class="buton" style="margin:auto;">
+            <a href="Proposal5">
+                @Model.Proposal6
+            </a>
+        </div>
+        <br />
+    }
+
+    @if (Model.TotalProposals >= 7)
+    {
+        <div class="buton" style="margin:auto;">
+            <a href="Proposal5">
+                @Model.Proposal7
+            </a>
+        </div>
+        <br />
+    }
+
+
+    @*<button class="bt">Add Proposal</button>*@
+
+
+
+    <p style="color:white; text-align:right; font-size:20px;">We have @Model.TotalProposals proposals.</p>
+
+
+
+
+
+    @*<form>
+            <input type="text" id="number" value="0" />
+            <input type="button" onclick="incrementValue()" value="Increase" />
+        </form>
+
+        <script>
+            function incrementValue() {
+                @Model.TotalProposal = parseInt(document.getElementById('number').@Model.TotalProposal, 10);
+                @Model.TotalProposal = isNaN(Model.TotalProposal) ? 0 : @Model.TotalProposal;
+                @Model.TotalProposal++;
+                document.getElementById('number').@Model.TotalProposal = @Model.TotalProposal;
+            }
+        </script>*@
+
+    @*<button onclick="myFunction()">Add Proposal</button>
+
+        <script>
+                            function myFunction() {
+                                @(++i);
+                            }
+
+            //document.getElementById("myBtn").addEventListener("click", displayDate);
+        </script>*@
+
+    @*<script>
+
+            $(function () {
+                $('.bt').on('click', function () {
+                    @(i++)
+                    var r = $('<input type="button" value="Proposal @(i) "/>');
+                    $("body").append(r);
+                });
+            });
+
+        </script>*@
+
+
+</body>

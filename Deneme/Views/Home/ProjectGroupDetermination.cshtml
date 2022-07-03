@@ -1,0 +1,85 @@
+﻿@model Deneme.Models.DataClass
+
+@{
+    ViewBag.Title = "ProjectGroupDetermination";
+}
+
+<h2>ProjectGroupDetermination</h2>
+
+<head>
+    <link href="~/Content/CSS/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/CSS/daterangepicker.css" rel="stylesheet" />
+    <link href="~/Content/CSS/material-design-iconic-font.min.css" rel="stylesheet" />
+    <link href="~/Content/CSS/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/CSS/main.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+</head>
+
+<body style="background-color: #3c373e">
+        <div class="page-wrapper font-poppins" style="margin-top:175px">
+            <div class="wrapper wrapper--w780">
+                <div class="card card-3">
+                    <div class="card-heading"></div>
+                    <div class="card-body">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div class="input-group">
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.GroupName, new { htmlAttributes = new { @class = "input--style-3", placeholder = "Group Name", @type = "text", name = "Group Name" } })
+                                        @Html.ValidationMessageFor(model => model.GroupName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.StudentID, new { htmlAttributes = new { @class = "input--style-3", placeholder = "Student ID", @type = "text", name = "Student ID" } })
+                                        @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.StudentID2, new { htmlAttributes = new { @class = "input--style-3", placeholder = "Student ID2", @type = "text", name = "Student ID2" } })
+                                        @Html.ValidationMessageFor(model => model.StudentID2, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <div class="p-t-10">
+                                        <input type="submit" value="Create" class="btn btn--pill btn--green" />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="input-group">
+                                <div class="col-md-offset-2 col-md-2">
+                                    <label class="label-success">@ViewBag.SuccesMessage</label>
+                                </div>
+                            </div>
+
+
+                        }
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+    
+
+                    <div>
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+
+
+                    @section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+                    }
+</body>

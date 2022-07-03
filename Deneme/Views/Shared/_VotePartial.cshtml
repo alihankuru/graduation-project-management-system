@@ -1,0 +1,33 @@
+﻿@model Deneme.Models.VoteViewModel
+
+<table style="width: 100%; border: 1px solid black">
+    <thead>
+        <tr>
+            @*<th>Group or Student ID</th>*@
+
+
+            <th>Feedback Message</th>
+
+            <th>Rate</th>
+
+            <th>Feedback Time</th>
+
+        </tr>
+
+    </thead>
+    <tr>
+
+
+        <td>
+        </td>
+
+        <td>
+            @Model.Rating
+        </td>
+
+        <td>
+            @Model.CommentedOn.Value.ToString(format: "dd-MMM-yyyy")
+
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Deneme.Models.VoteViewModel>
+@{
+    ViewBag.Title = "ShowGroup";
+}
+
+<h2>ShowGroup</h2>
+
+
+@foreach (var item in Model)
+{
+    @Html.Partial("ak", item)
+
+
+
+}
+
+
+
+
+
+
+<td>
+    @using (Html.BeginForm("AddVote", "Vote", FormMethod.Post, htmlAttributes: new { onsubmit = "return VerifyRating()" }))
+    {
+        <input name="assignGroup" value="@ViewBag.AssignGroup" />
+        <div>
+            <textarea rows="6" cols="50" name="questionDescription" id="txtArticleComment"></textarea>
+
+            <fieldset>
+                Rating <select name="rating">
+
+
+                    <option value="0">0</option>
+
+                    <option value="1">1</option>
+
+                    <option value="2">2</option>
+
+                    <option value="3">3</option>
+
+                </select>
+
+                <input type="hidden" name="rating" />
+
+            </fieldset>
+
+        </div>
+
+        <div>
+            <textarea rows="6" cols="50" name="questionDescription2" id="txtArticleComment2"></textarea>
+
+            <fieldset>
+                Rating <select name="rating2">
+
+
+                    <option value="0">0</option>
+
+                    <option value="1">1</option>
+
+                    <option value="2">2</option>
+
+                    <option value="3">3</option>
+
+                </select>
+
+                <input type="hidden" name="rating2" />
+                @*<input type="hidden" name="QuestionID" value="@item.QuestionID" />*@
+            </fieldset>
+        </div>
+
+        <div>
+            <textarea rows="6" cols="50" name="questionDescription3" id="txtArticleComment3"></textarea>
+
+            <fieldset>
+                Rating <select name="rating3">
+
+
+                    <option value="0">0</option>
+
+                    <option value="1">1</option>
+
+                    <option value="2">2</option>
+
+                    <option value="3">3</option>
+
+                </select>
+
+                <input type="hidden" name="rating3" />
+                @*<input type="hidden" name="QuestionID" value="@item.QuestionID" />*@
+            </fieldset>
+
+
+        </div>
+
+
+
+        <div>
+
+            <input type="submit" class="btn btn-primary active" name="SaveComment" value="Save Answer" />
+        </div>
+
+
+
+    }
+</td>

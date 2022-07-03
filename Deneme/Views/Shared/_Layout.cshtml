@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+ 
+
+    <link rel="stylesheet" href="~/Content/CSS/stylenavbar.css">
+
+
+
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+
+
+<body>
+
+    <div class="container">
+    
+        <div class="row justify-content-center" style="margin-bottom:-900px;">
+          
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" style="width:1920px;">
+        <div class="container">
+            <img src="@Url.Content("~/Content/Images/layoutiku.png")" style="float:left; margin-right:20px; margin-top:8px;">
+
+
+
+
+            <div class="collapse navbar-collapse" id="ftco-nav" >
+                <ul class="navbar-nav m-auto" style=" font-size: 20px; font-weight: bolder;">
+
+
+                    @if (User.IsInRole("Student"))
+                    {
+
+
+                        <li class="nav-item"><a style=" font-size: 16px; font-weight: bolder; font-family:'Poppins'" href="/Student/Deneme" class="nav-link">Proposal List</a></li>
+                        <li class="nav-item"><a style=" font-size: 16px; font-weight: bolder; font-family:'Poppins'" href="/Student/StudentGroup" class="nav-link">Group Uploads</a></li>
+                        <li class="nav-item"><a style=" font-size: 16px; font-weight: bolder; font-family:'Poppins'" href="/Home/ProjectGroupDetermination" class="nav-link">ProjectGroupDetermination</a></li>
+                        <li class="nav-item"><a style=" font-size: 16px; font-weight: bolder; font-family:'Poppins'" href="/Student/SeeApply" class="nav-link">SeeApply</a></li>
+                        <li class="nav-item dropdown">
+                            <a style=" font-size: 16px; font-weight: bolder; font-family: 'Poppins'" class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@HttpContext.Current.User.Identity.Name</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown04">
+                                <a class="dropdown-item" href="/Student/StudentProfile">Profile</a>
+                                <a class="dropdown-item" href="/Login/Logout">Logout</a>
+
+                            </div>
+                        </li>
+
+
+                    }
+
+
+
+                    @if (User.IsInRole("Professor"))
+                    {
+
+                        <li class="nav-item"><a style=" font-size: 16px; font-weight: bolder; font-family: 'Poppins';" href="/Professor/ProposalForm" class="nav-link">ProposalForm</a></li>
+                        <li class="nav-item"><a style=" font-size: 16px; font-weight: bolder; font-family: 'Poppins';" href="/Professor/ProfSeeGroupReports" class="nav-link">See Reports</a></li>
+                        <li class="nav-item"><a style=" font-size: 16px; font-weight: bolder; font-family:'Poppins'" href="/Professor/ViewAppliance" class="nav-link">ViewAppliance</a></li>
+                        <li class="nav-item"><a style=" font-size: 16px; font-weight: bolder; font-family:'Poppins'" href="/Home/ProjectGroupDetermination" class="nav-link">ProjectGroupDetermination</a></li>
+                        <li class="nav-item"><a style=" font-size: 16px; font-weight: bolder; font-family:'Poppins'" href="/Vote/SelectGroup" class="nav-link">Feedback</a></li>
+                        <li class="nav-item"><a style=" font-size: 16px; font-weight: bolder; font-family:'Poppins'" href="/JuryGroupProject/Index" class="nav-link">Results</a></li>
+                        <li class="nav-item"><a style=" font-size: 16px; font-weight: bolder; font-family:'Poppins'" href="/Professor/ApproveDenyButtonPage" class="nav-link">ApproveDenyButtonPage</a></li>
+                        <li class="nav-item"><a style=" font-size: 16px; font-weight: bolder; font-family:'Poppins'" href="/Jury/Jury" class="nav-link">JuryTables</a></li>
+                        <li class="nav-item dropdown">
+                            <a style=" font-size: 16px; font-weight: bolder; font-family:'Poppins'" class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@HttpContext.Current.User.Identity.Name</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown04">
+                                <a class="dropdown-item" href="/Professor/ProfessorProfile">Profile</a>
+                                <a class="dropdown-item" href="/Login/Logout">Logout</a>
+
+                            </div>
+                        </li>
+
+                    }
+
+
+                </ul>
+            </div>
+
+
+        </div>
+
+    </nav>
+    <!-- END nav -->
+
+
+
+    <div class="container body-content" style="margin-bottom:200px;">
+        @RenderBody()
+
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/poppernavbar.js"></script>
+    <script src="~/Scripts/mainnavbar.js"></script>
+</body>
+</html>

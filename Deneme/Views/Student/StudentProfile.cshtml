@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Deneme.Models.StudentProjectSee>
+@{
+    ViewBag.Title = "StudentProfile";
+}
+<head>
+    <link rel="stylesheet" href="~/Content/stylesheet.css" />
+</head>
+<body style="background-color: #3c373e; margin-right:550px;">
+
+
+
+    <div class="Profile" style="position:absolute;">
+
+        <div class="profileicon" style="position:absolute;">
+            <img class="rounded-circle mt-5" width="150" src="@Url.Content("~/Content/Images/profilep.png")">
+
+
+        </div>
+        <div style="margin-left: 600px; font-size: 30px; margin-top: 60px; position: absolute; font-family: sans-serif;">
+            <b>General Informations</b>
+        </div>
+
+        <div style=" font-size: 30px; margin-left: 1070px; margin-top: 60px; margin-bottom: 1500px; position:absolute; font-family:sans-serif;">
+            <b> Project Informations</b>
+
+        </div>
+        <div style="margin-top:100px;">
+            @foreach (var item in Model)
+            {
+
+                if (item.Stutbl.StudentNumber == HttpContext.Current.User.Identity.Name)
+                {
+
+
+                    <div style=" position:absolute; margin-left:150px; margin-top:300px;">
+                        <b>  @item.Stutbl.StudentNumber - @item.Stutbl.StudentName @item.Stutbl.StudentSurname </b>
+                    </div>
+
+                    <div style="height: 740px; border-left: 1px solid gray; position:absolute; margin-left:500px;">
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="row mt-3" style="margin-left: 585px; margin-top: 440px; position: absolute; font-weight: bold; color:black;">
+                        <div class="col-md-12"><label class="labels">Student ID</label><input type="text" class="form-control" placeholder="@item.Stutbl.StudentID" readonly value=""></div>
+                        <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control" placeholder="@item.Stutbl.StudentName" readonly value=""></div>
+                        <div class="col-md-12"><label class="labels">Surname</label><input type="text" class="form-control" placeholder="@item.Stutbl.StudentSurname" readonly value=""></div>
+                        <div class="col-md-12"><label class="labels">Student-Number</label><input type="text" class="form-control" placeholder="@item.Stutbl.StudentNumber" readonly value=""></div>
+                        <div class="col-md-12"><label class="labels">Student E-mail</label><input type="text" class="form-control" placeholder="@item.Stutbl.StudentEmail" readonly value=""></div>
+                        <div class="col-md-12"><label class="labels">Student Phone</label><input type="text" class="form-control" placeholder="@item.Stutbl.StudentPhone" readonly value=""></div>
+
+
+                    </div>
+
+                    <div style="height: 740px; border-left: 1px solid gray; position:absolute; margin-left:980px;">
+                    </div>
+
+                }
+            }
+
+
+            @foreach (var item in Model)
+            {
+
+                if (item.Stutbl.StudentNumber == HttpContext.Current.User.Identity.Name)
+                {
+
+
+                    <div class="row mt-3" style=" margin-left:1060px; margin-top:130px; ">
+
+
+                        <div class="col-md-12"><label class="labels">Project Name</label><input type="text" class="form-control" placeholder="@item.Projtbl.ProjectName " readonly value=""></div>
+                        <div class="col-md-12"><label class="labels">Project Description</label><input type="text" class="form-control" placeholder="  @item.Projtbl.ProjectDescription " readonly value=""></div>
+                        <div class="col-md-12"><label class="labels">Project Team Size</label><input type="text" class="form-control" placeholder="  @item.Projtbl.ProjectMaxCapacity   " readonly value=""></div>
+                        <div class="col-md-12"><label class="labels">Project Start Date</label><input type="text" class="form-control" placeholder="  @item.Projtbl.ProjectStartDate" readonly value=""></div>
+                        <div style="margin-bottom:25px;" class="col-md-12"><label class="labels">Project End Date</label><input type="text" class="form-control" placeholder="        @item.Projtbl.ProjectEndDate" readonly value=""></div>
+
+
+                    </div>
+                }
+
+
+            }
+
+        </div>
+
+    </div>
+
+
+</body>
+

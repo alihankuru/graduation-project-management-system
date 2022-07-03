@@ -1,0 +1,464 @@
+﻿@model IEnumerable<Deneme.Models.QuestionViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/CSS/style1.css">
+    <link rel="stylesheet" href="~/Content/CSS/style.css">
+    <link rel="stylesheet" href="~/Content/CSS/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/CSS/bootstrap.min.min.css">
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* CSS property for header section */
+        .header {
+            background-color: green;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* CSS property for navigation menu */
+        .nav_menu {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+            .nav_menu a {
+                float: left;
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                .nav_menu a:hover {
+                    background-color: white;
+                    color: green;
+                }
+
+        /* CSS property for content section */
+        .columnA, .columnB, .columnC {
+            float: left;
+            width: 50%;
+            padding: 15px;
+            text-align: justify;
+        }
+
+        h2 {
+            color: black;
+            text-align: left;
+        }
+
+
+        tr, td {
+            margin-bottom: 50px;
+            margin: 50px;
+        }
+        /* Media query to set website layout
+            according to screen size */
+
+    </style>
+</head>
+
+<body style="margin:0px; padding:0px;">
+
+    
+    <!-- header of website layout -->
+    <!-- navigation menu of website layout -->
+    <!-- Content section of website layout -->
+    <div class="row">
+
+        <div class="columnA">
+            <h2>Question No</h2>
+
+
+            @foreach (var item in Model)
+            {
+                <div style="color:white">
+                    <tr>
+
+                        <td style="color:white">@item.QuestionID</td>
+                    </tr>
+
+                    <br />
+
+                    <tr>
+                        <td style="color:white">@item.QuestionSubject</td>
+                    </tr>
+
+                    <br />
+                    <tr>
+                        <td style="color:white">@item.QuestionDescription</td>
+
+                        @*<td>@Html.ActionLink(linkText: "Add Feedback", actionName: "ShowVote", routeValues: new { QuestionID = @item.QuestionID })</td>*@
+                    </tr>
+
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    
+
+
+                </div>
+
+            }
+
+
+        </div>
+
+        <div class="columnB">
+            <h2>Answer</h2>
+
+            <tr>
+
+                <td>
+                    @using (Html.BeginForm("AddVote", "Vote", FormMethod.Post, htmlAttributes: new { onsubmit = "return VerifyRating()" }))
+                    {
+                    <div>
+                        <div>
+                            <textarea rows="6" cols="50" name="questionDescription" id="txtArticleComment"></textarea>
+                            <input type="hidden" name="assignGroup" value="@ViewBag.AssignGroup" />
+                            <fieldset margin-top:"20px" style="color:white">
+                                Rating
+                                <select name="rating" style="color:black">
+
+
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+
+                                    <option value="2">2</option>
+
+                                    <option value="3">3</option>
+
+                                    <option value="4">4</option>
+
+                                    <option value="5">5</option>
+
+                                    <option value="6">6</option>
+
+                                    <option value="7">7</option>
+
+                                    <option value="8">8</option>
+
+                                    <option value="9">9</option>
+
+                                    <option value="10">10</option>
+
+                                </select>
+
+                                <input type="hidden" name="rating" />
+                                @*<input type="hidden" name="assignGroup" />*@
+                            </fieldset>
+
+                        </div>
+
+                        <div>
+                            <textarea rows="6" cols="50" name="questionDescription2" id="txtArticleComment2"></textarea>
+
+                            <fieldset style="color:white">
+                                Rating
+                                <select name="rating2" style="color:black">
+
+
+                                    <option value="0">0</option>
+
+                                    <option value="1">1</option>
+
+                                    <option value="2">2</option>
+
+                                    <option value="3">3</option>
+
+                                    <option value="4">4</option>
+
+                                    <option value="5">5</option>
+
+                                    <option value="6">6</option>
+
+                                    <option value="7">7</option>
+
+                                    <option value="8">8</option>
+
+                                    <option value="9">9</option>
+
+                                    <option value="10">10</option>
+
+                                </select>
+
+                                <input type="hidden" name="rating2" />
+                                @*<input type="hidden" name="QuestionID" value="@item.QuestionID" />*@
+                            </fieldset>
+                        </div>
+
+                        <div>
+                            <textarea rows="6" cols="50" name="questionDescription3" id="txtArticleComment3"></textarea>
+
+                            <fieldset style="color:white">
+                                Rating
+                                <select name="rating3" style="color:black">
+
+
+                                    <option value="0">0</option>
+
+                                    <option value="1">1</option>
+
+                                    <option value="2">2</option>
+
+                                    <option value="3">3</option>
+
+                                    <option value="4">4</option>
+
+                                    <option value="5">5</option>
+
+                                    <option value="6">6</option>
+
+                                    <option value="7">7</option>
+
+                                    <option value="8">8</option>
+
+                                    <option value="9">9</option>
+
+                                    <option value="10">10</option>
+
+                                </select>
+
+                                <input type="hidden" name="rating3" />
+                                @*<input type="hidden" name="QuestionID" value="@item.QuestionID" />*@
+                            </fieldset>
+                            <br />
+
+                        </div>
+
+                        <div>
+                            <textarea rows="6" cols="50" name="questionDescription4" id="txtArticleComment4"></textarea>
+
+                            <fieldset style="color:white">
+                                Rating
+                                <select name="rating4" style="color:black">
+
+
+                                    <option value="0">0</option>
+
+                                    <option value="1">1</option>
+
+                                    <option value="2">2</option>
+
+                                    <option value="3">3</option>
+
+                                    <option value="4">4</option>
+
+                                    <option value="5">5</option>
+
+                                    <option value="6">6</option>
+
+                                    <option value="7">7</option>
+
+                                    <option value="8">8</option>
+
+                                    <option value="9">9</option>
+
+                                    <option value="10">10</option>
+
+                                </select>
+
+                                <input type="hidden" name="rating4" />
+                                @*<input type="hidden" name="QuestionID" value="@item.QuestionID" />*@
+                            </fieldset>
+                            <br />
+
+                        </div>
+
+                        <div>
+                            <textarea rows="6" cols="50" name="questionDescription5" id="txtArticleComment5"></textarea>
+
+                            <fieldset style="color:white">
+                                Rating
+                                <select name="rating5" style="color:black">
+
+
+                                    <option value="0">0</option>
+
+                                    <option value="1">1</option>
+
+                                    <option value="2">2</option>
+
+                                    <option value="3">3</option>
+
+                                    <option value="4">4</option>
+
+                                    <option value="5">5</option>
+
+                                    <option value="6">6</option>
+
+                                    <option value="7">7</option>
+
+                                    <option value="8">8</option>
+
+                                    <option value="9">9</option>
+
+                                    <option value="10">10</option>
+
+                                </select>
+
+                                <input type="hidden" name="rating5" />
+                                @*<input type="hidden" name="QuestionID" value="@item.QuestionID" />*@
+                            </fieldset>
+                            <br />
+
+                        </div>
+
+                        <div>
+                            <textarea rows="6" cols="50" name="questionDescription6" id="txtArticleComment6"></textarea>
+
+                            <fieldset style="color:white">
+                                Rating
+                                <select name="rating6" style="color:black">
+
+
+                                    <option value="0">0</option>
+
+                                    <option value="1">1</option>
+
+                                    <option value="2">2</option>
+
+                                    <option value="3">3</option>
+
+                                    <option value="4">4</option>
+
+                                    <option value="5">5</option>
+
+                                    <option value="6">6</option>
+
+                                    <option value="7">7</option>
+
+                                    <option value="8">8</option>
+
+                                    <option value="9">9</option>
+
+                                    <option value="10">10</option>
+
+                                </select>
+
+                                <input type="hidden" name="rating6" />
+                                @*<input type="hidden" name="QuestionID" value="@item.QuestionID" />*@
+                            </fieldset>
+                            <br />
+
+                        </div>
+
+                        <div>
+                            <textarea rows="6" cols="50" name="questionDescription7" id="txtArticleComment7"></textarea>
+
+                            <fieldset style="color:white">
+                                Rating
+                                <select name="rating7" style="color:black">
+
+
+                                    <option value="0">0</option>
+
+                                    <option value="1">1</option>
+
+                                    <option value="2">2</option>
+
+                                    <option value="3">3</option>
+
+                                    <option value="4">4</option>
+
+                                    <option value="5">5</option>
+
+                                    <option value="6">6</option>
+
+                                    <option value="7">7</option>
+
+                                    <option value="8">8</option>
+
+                                    <option value="9">9</option>
+
+                                    <option value="10">10</option>
+
+                                </select>
+
+                                <input type="hidden" name="rating7" />
+                                @*<input type="hidden" name="QuestionID" value="@item.QuestionID" />*@
+                            </fieldset>
+                            <br />
+
+                        </div>
+
+
+                        <div>
+                            <textarea rows="6" cols="50" name="questionDescription8" id="txtArticleComment8"></textarea>
+
+                            <fieldset style="color:white">
+                                Rating
+                                <select name="rating8" style="color:black">
+
+
+                                    <option value="0">0</option>
+
+                                    <option value="1">1</option>
+
+                                    <option value="2">2</option>
+
+                                    <option value="3">3</option>
+
+                                    <option value="4">4</option>
+
+                                    <option value="5">5</option>
+
+                                    <option value="6">6</option>
+
+                                    <option value="7">7</option>
+
+                                    <option value="8">8</option>
+
+                                    <option value="9">9</option>
+
+                                    <option value="10">10</option>
+
+                                </select>
+
+                                <input type="hidden" name="rating8" />
+                                @*<input type="hidden" name="QuestionID" value="@item.QuestionID" />*@
+                            </fieldset>
+                            <br />
+
+                        </div>
+
+                        <br />
+
+                        <div>
+
+                            <input type="submit" class="btn btn-primary active" name="SaveComment" value="Save Answer" />
+                        </div>
+
+
+                    </div>
+                    }
+                </td>
+
+            </tr>
+
+
+
+
+
+        </div>
+
+
+    </div>
+</body>
+</html>

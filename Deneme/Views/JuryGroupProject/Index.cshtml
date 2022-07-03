@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Deneme.Models.JuryGroupProject>
+@{
+    ViewBag.Title = "Index";
+}
+
+<html>
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/CSS/style1.css">
+    <link rel="stylesheet" href="~/Content/CSS/style.css">
+    <link rel="stylesheet" href="~/Content/CSS/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/CSS/bootstrap.min.min.css">
+
+</head>
+
+
+<body style="margin:0px; padding:0px;">
+    <center>
+        
+
+
+
+
+        <div>
+            <div class="container">
+                <div class="table-responsive">
+                    <table class="table table-borderless" style="background-color: #3c373e; border-radius: 15px; opacity: 1; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
+                        <tr>
+                            <td>
+                                <table class="table custom-table" style="border-collapse: collapse; border-spacing: 15px 5rem; background-color: #29242b; border-radius: 15px;">
+
+
+                                    <tr>
+                                        <td>Jury Name</td>
+                                        <td>Group Name</td>
+                                        <td>Project Name</td>
+                                        <td>Rating</td>
+                                    </tr>
+
+
+                                    @foreach (var item in Model)
+                                    {
+                                        if (item.Proftbl.ProfessorUsername == HttpContext.Current.User.Identity.Name)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @item.juriesTbls.JuryName
+
+                                                </td>
+
+                                                <td>
+                                                    @item.groupTbls.GroupName
+                                                </td>
+
+
+                                                <td>
+                                                    @item.projectTbls.ProjectName
+                                                </td>
+
+                                                <td>
+                                                    @item.groupRatingResultTbls.TotalRating
+                                                </td>
+
+                                                <td>
+                                                    @Html.ActionLink("Add Feedback", "Index", "Vote", new { GroupID = @item.groupTbls.GroupID }, null)
+                                                </td>
+
+
+                                                @*<td>@Html.ActionLink("Add Feedback", "Index", "Vote", new { GroupID = @item.groupTbls.GroupID })</td>*@
+
+
+                                            </tr>
+                                        }
+
+                                    }
+
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </center>
+
+
+</body>
+
+</html>

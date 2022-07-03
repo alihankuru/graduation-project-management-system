@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Deneme.Models.GroupApplianceView>
+@{
+    ViewBag.Title = "SeeApply";
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/CSS/style1.css">
+    <link rel="stylesheet" href="~/Content/CSS/style.css">
+    <link rel="stylesheet" href="~/Content/CSS/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/CSS/bootstrap.min.min.css">
+</head>
+
+<body style="margin:0px; padding:0px;">
+    <div>
+        <div class="container">
+            <div class="table-responsive">
+                <table class="table table-borderless" style="background-color: #3c373e; border-radius: 15px; opacity: 1; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
+                    <tr>
+                        <td>
+                            <table class="table custom-table" style="border-collapse: collapse; border-spacing: 15px 5rem; background-color: #29242b; border-radius: 15px;">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" colspan="1">
+                                            Group Name
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Project ID
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Project Name
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Project Description
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Project End Date
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Attachments
+                                        </th>
+                                        <th scope="col" colspan="1">
+                                            Appeal ?
+                                        </th>
+
+                                </thead>
+
+
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr scope="row" style="padding: 5px; border-radius: 15px;">
+                                            <td>
+                                                <a>
+                                                    @item.groupTbl.GroupName
+                                                </a>
+                                            </td>
+
+                                            <td>
+                                                @item.projectTbl.ProjectID
+                                            </td>
+                                            <td>
+                                                @item.projectTbl.ProjectName
+                                            </td>
+                                            <td>
+                                                @item.projectTbl.ProjectDescription
+                                            </td>
+                                            <td>
+                                                @item.projectTbl.ProjectEndDate
+                                            </td>
+                                            <td>
+                                                <a href="../../@item.projectTbl.ProjectUploadFile" download="Proposal requirements" style="font-weight:bolder; text-decoration:none; z-index: +1;">Download</a>
+                                                <a href="../../@item.projectTbl.ProjectUploadFile" target="_blank" style="font-weight:bolder; text-decoration:none; z-index: +1;">Open</a>
+                                            </td>
+
+                                            <td>
+                                                @if (item.group_projectTbl.Status == 1)
+                                                {
+
+                                                    <span class="btn btn-success">Approved</span>}
+
+                                                @if (item.group_projectTbl.Status == null || item.group_projectTbl.Status == 0)
+                                                {
+
+
+                                                    <span class="btn btn-info">Pending</span>}
+
+                                                @if (item.group_projectTbl.Status == -1)
+                                                {
+
+                                                    <script language="javascript">
+                                                        $("#a1").hide();
+
+
+                                                    </script>
+                                                    <script language="javascript">
+                                                        document.getElementById("a1").style.visibility = "hidden";
+                                                        document.getElementById("a1").style.display = "none";
+                                                    </script>
+
+
+                                                    <span class="btn btn-danger">Denied</span>}
+                                            </td>
+                                        </tr>
+                                        <tr class="spacer" style="background-color: #3c373e; "><td colspan="100"></td></tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
